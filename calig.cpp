@@ -252,6 +252,9 @@ void constructCand(){
                 for(auto& vj : G[vi].nei){
                     int vj_lb = G[vj].label;
                     for(auto& uj : Q[ui].nei){
+                        if(ui_cand.count(uj) == 0) {
+                            ui_cand[uj] = u_set();  
+                        }
                         if(uj>=0 && vj>=0 && Q[uj].label==vj_lb){
                             ui_cand[uj].insert(vj);
                         }
